@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Task = ({ title, task: {description} }) =>
+const Task = ({ task: {title, description} }) =>
   <div className="task">
     <div className="task-header">
       <div>{title}</div>
