@@ -4,7 +4,7 @@ import TasksPage from './components/TasksPage';
 import {createTask, editTask} from './actions'
 
 class App extends Component {
-  onCreatetask = ({ title, description }) => {
+  onCreateTask = ({ title, description }) => {
     this.props.dispatch(createTask({title, description}))
   }
 
@@ -17,7 +17,7 @@ class App extends Component {
       <div className="main-content">
         <TasksPage
           tasks={this.props.tasks}
-          onCreatetask={this.onCreatetask}
+          onCreateTask={this.onCreateTask}
           onStatusChange={this.onStatusChange}
         />
       </div>

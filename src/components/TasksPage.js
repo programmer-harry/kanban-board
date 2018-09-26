@@ -34,6 +34,7 @@ class TasksPage extends Component {
       title: this.state.title,
       description: this.state.description
     })
+    this.resetForm()
   }
 
   toggleForm = () => {
@@ -41,7 +42,7 @@ class TasksPage extends Component {
   }
 
   renderTaskLists() {
-    const { tasks } = this.props;
+    const {onStatusChange, tasks } = this.props;
     return TASK_STATUSES.map(status => {
       const statusTasks = tasks.filter(task => task.status === status);
       return (
@@ -49,7 +50,7 @@ class TasksPage extends Component {
           key={status}
           status={status}
           tasks={statusTasks}
-          onStatusChange={this.props.onStatusChange}
+          onStatusChange={onStatusChange}
         />
       );
     });
@@ -57,14 +58,26 @@ class TasksPage extends Component {
 
   render() {
     return (
-      <div className="task-lists">
-        <div className="task-list-header">
+      <div className="task">
+        <div className="task-header">
           <button className="button button-default" onClick={this.toggleForm}>+ New Task</button>
         </div>
         {this.state.showNewCardForm && (
-          <form className="task-list-form" onSubmit={this.onCreateTask}>
-            <input className="full-width-input" onChange={this.onTitleChange} value={this.state.title} type="text" placeholder="title" />
-            <input className="full-width-input" onChange={this.onDescriptionChange} value={this.state.description} type="text" placeholder="description" />
+          <form className="new-task-form" onSubmit={this.onCreateTask}>
+            <input
+              className="full-width-input"
+              onChange={this.onTitleChange}
+              value={this.state.title}
+              type="text"
+              placeholder="title"
+            />
+            <input
+              className="full-width-input"
+              onChange={this.onDescriptionChange}
+              value={this.state.description}
+              type="text"
+              placeholder="description"
+            />
             <button className="button" type="submit">Save</button>
           </form>
         )}
