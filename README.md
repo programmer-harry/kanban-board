@@ -38,3 +38,5 @@ https://github.com/redux-utilities/flux-standard-action
 ### How the reducer responds to actions:
 ![reducer in action](https://www.safaribooksonline.com/library/view/redux-in-action/9781617294976/02fig10_alt.jpg "reducer in action")
 
+https://github.com/reduxjs/redux-devtools
+
