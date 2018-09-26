@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TaskList from './TaskList';
-import {TASK_STATUSES} from '../constants'
+import { TASK_STATUSES } from '../constants'
 
 class TasksPage extends Component {
   constructor(props) {
@@ -44,7 +44,14 @@ class TasksPage extends Component {
     const { tasks } = this.props;
     return TASK_STATUSES.map(status => {
       const statusTasks = tasks.filter(task => task.status === status);
-      return <TaskList key={status} status={status} tasks={statusTasks} />;
+      return (
+        <TaskList
+          key={status}
+          status={status}
+          tasks={statusTasks}
+          onStatusChange={this.props.onStatusChange}
+        />
+      );
     });
   }
 

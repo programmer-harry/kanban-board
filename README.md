@@ -17,7 +17,7 @@ https://blog.isquaredsoftware.com/2016/10/practical-redux-part-0-introduction/
 * https://github.com/rtfeldman/seamless-immutable
 
 ### Presentational components:
-* don’t have dependencies on Redux.
+* don’t have dependencies on Redux; accept data as props and handle markup.
 * they introduce determinism into your view renders.
 * are easily tested.
 
