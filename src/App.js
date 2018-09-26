@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import TasksPage from './components/TasksPage';
+import {createTask} from './actions'
 
 class App extends Component {
   onCreatetask = ({ title, description }) => {
-    this.props.dispatch({
-      type: 'CREATE_TASK',
-      payload: {
-        title,
-        description
-      }
-    })
+    this.props.dispatch(createTask({title, description}))
   }
   render() {
-    console.log('props from App: ', this.props) /* {dispatch: function() {}, tasks: []} */
     return (
       <div className="main-content">
         <TasksPage
