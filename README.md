@@ -40,3 +40,12 @@ https://github.com/redux-utilities/flux-standard-action
 
 https://github.com/reduxjs/redux-devtools
 
+###  A synchronous action being dispatched:
+![synchronous action](https://www.safaribooksonline.com/library/view/redux-in-action/9781617294976/04fig01_alt.jpg "synchronous action")
+
+### Asynchronous action dispatch:
+![asynchronous action](https://www.safaribooksonline.com/library/view/redux-in-action/9781617294976/04fig02_alt.jpg "asynchronous action")
+
+### The chronological flow of fetchTasks as an async action:
+![flow of fetchTasks as an async action](https://www.safaribooksonline.com/library/view/redux-in-action/9781617294976/04fig03_alt.jpg "flow of fetchTasks as an async action")
+

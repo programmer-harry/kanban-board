@@ -1,10 +1,12 @@
+import * as api from '../api'
+
 let _id = 1
 
 export function uniqueId() {
   return _id++
 }
 
-export function createTask({title, description}) {
+export function createTask({ title, description }) {
   return {
     type: 'CREATE_TASK',
     payload: {
@@ -23,5 +25,19 @@ export function editTask(id, params = {}) {
       id,
       params
     }
+  }
+}
+
+export function fetchTasksSucceded(tasks) {
+  return {
+    type: 'FETCH_TASKS_SUCCEEDED',
+    payload: { tasks }
+  }
+}
+
+export function fetchTasks() {
+  return dispatch => {
+    api.fetchTasks()
+      .then(response => dispatch(fetchTasksSucceded(response.data)))
   }
 }
