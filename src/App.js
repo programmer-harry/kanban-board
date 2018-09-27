@@ -34,4 +34,5 @@ function mapStateToProps(state) {
     tasks: state.tasks
   }
 }
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps)(App)

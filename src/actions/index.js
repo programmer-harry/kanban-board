@@ -16,13 +16,25 @@ export function createTask({title, description, status = 'Unstarted'}) {
   }
 }
 
-export function editTask(id, params = {}) {
+function editTaskSucceeded(task) {
   return {
-    type: 'EDIT_TASK',
+    type: 'EDIT_TASK_SUCCEEDED',
     payload: {
-      id,
-      params
+      task
     }
+  }
+}
+
+function getTaskById(tasks, id) {
+  return tasks.find(task => task.id === id)
+}
+
+export function editTask(id, params = {}) {
+  return (dispatch, getState) => {
+    const task = getTaskById(getState().tasks.tasks, id)
+    const updatedTask = Object.assign({}, task, params)
+    api.editTask(id, updatedTask)
+      .then(res => dispatch(editTaskSucceeded(res.data)))
   }
 }
 
