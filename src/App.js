@@ -17,12 +17,14 @@ class App extends Component {
   }
 
   render() {
+    console.log('props from app', this.props)
     return (
       <div className="main-content">
         <TasksPage
-          tasks={this.props.tasks.tasks}
+          tasks={this.props.tasks}
           onCreateTask={this.onCreateTask}
           onStatusChange={this.onStatusChange}
+          isLoading={this.props.isLoading}
         />
       </div>
     );
@@ -30,9 +32,8 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    tasks: state.tasks
-  }
+  const {tasks, isLoading} = state.tasks
+  return { tasks, isLoading}
 }
 
 export default connect(mapStateToProps)(App)

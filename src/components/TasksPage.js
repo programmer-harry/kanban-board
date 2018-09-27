@@ -57,6 +57,12 @@ class TasksPage extends Component {
   }
 
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div className="tasks-loading">Loading...</div>
+      )
+    }
+
     return (
       <div className="task">
         <div className="task-header">

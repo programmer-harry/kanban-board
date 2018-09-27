@@ -38,6 +38,12 @@ export function editTask(id, params = {}) {
   }
 }
 
+function fetchTasksStarted() {
+  return {
+    type: 'FETCH_TASKS_STARTED'
+  }
+}
+
 export function fetchTasksSucceded(tasks) {
   return {
     type: 'FETCH_TASKS_SUCCEEDED',
@@ -47,7 +53,12 @@ export function fetchTasksSucceded(tasks) {
 
 export function fetchTasks() {
   return dispatch => {
+    dispatch(fetchTasksStarted())
+
     api.fetchTasks()
-      .then(response => dispatch(fetchTasksSucceded(response.data)))
+      .then(response => setTimeout(
+        () => dispatch(fetchTasksSucceded(response.data)),
+        2000
+      ))
   }
 }
