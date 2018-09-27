@@ -1,6 +1,7 @@
 const initialState = {
   tasks: [],
-  isLoading: false
+  isLoading: false,
+  error: null
 }
 
 export default function tasks(state = initialState, action) {
@@ -51,6 +52,13 @@ export default function tasks(state = initialState, action) {
       }
     }
 
+    case 'FETCH_TASKS_FAILED': {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.error
+      }
+    }
     case 'CREATE_TASK_SUCCEEDED': {
       return {
         ...state,

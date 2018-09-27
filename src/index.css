@@ -112,3 +112,11 @@ hr {
   align-items: center;
   height: 100vh;
 }
+
+.flash-error {
+  text-align: center;
+  padding: 25px;
+  background: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
+}

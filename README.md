@@ -49,3 +49,6 @@ https://github.com/reduxjs/redux-devtools
 ### The chronological flow of fetchTasks as an async action:
 ![flow of fetchTasks as an async action](https://www.safaribooksonline.com/library/view/redux-in-action/9781617294976/04fig03_alt.jpg "flow of fetchTasks as an async action")
 
+### The command *fetchTasks()* handles the three types of actions that describe a request.
+![fetchTasks()](https://www.safaribooksonline.com/library/view/redux-in-action/9781617294976/04fig05_alt.jpg "fetchTasks()")
+

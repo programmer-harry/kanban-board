@@ -44,10 +44,17 @@ function fetchTasksStarted() {
   }
 }
 
-export function fetchTasksSucceded(tasks) {
+function fetchTasksSucceded(tasks) {
   return {
     type: 'FETCH_TASKS_SUCCEEDED',
     payload: { tasks }
+  }
+}
+
+function fetchTaskFailed(error) {
+  return {
+    type: 'FETCH_TASKS_FAILED',
+    payload: { error}
   }
 }
 
@@ -56,9 +63,13 @@ export function fetchTasks() {
     dispatch(fetchTasksStarted())
 
     api.fetchTasks()
-      .then(response => setTimeout(
-        () => dispatch(fetchTasksSucceded(response.data)),
-        2000
-      ))
+      .then(response => {
+        // setTimeout(
+        //   () => dispatch(fetchTasksSucceded(response.data)),
+        //   2000
+        // )
+        throw new Error('Oh noes! Unable to fetch tasks!')
+      })
+      .catch(err => dispatch(fetchTaskFailed(err.message)))
   }
 }
