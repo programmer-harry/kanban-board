@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="main-content">
         <TasksPage
-          tasks={this.props.tasks}
+          tasks={this.props.tasks.tasks}
           onCreateTask={this.onCreateTask}
           onStatusChange={this.onStatusChange}
         />
